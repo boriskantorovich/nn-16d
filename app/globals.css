@@ -76,3 +76,51 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Instagram Feed Styles */
+.instagram-post-container {
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  background-color: #fafafa;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.instagram-post-container:hover {
+  transform: translateY(-4px);
+}
+
+.instagram-media {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+/* Fix Instagram embed margins */
+.instagram-media-rendered {
+  margin: 0 !important;
+}
+
+/* Loading state pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.instagram-post-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #eee;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Add these styles to hide/modify Instagram's default UI */
+.instagram-media .sqdOP {
+  display: none !important; /* Hides "View Profile" button */
+}

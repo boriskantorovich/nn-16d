@@ -1,19 +1,16 @@
 'use client'
 
 import Image from 'next/image';
+import { content } from '../data/content'
 
 export function Team() {
-  const teamMembers = [
-    { name: 'Анна Ривина', role: 'основательница Центра «Насилию.нет»', image: '/images/team/rivina.jpg' },
-    { name: 'Татьяна Калинина', role: 'руководительница волонтерского направления', image: '/images/team/tania.jpg' },
-    { name: 'Виктория Одиссонова', role: 'руководительница PR в Центре «Насилию.нет»', image: '/images/team/vika.jpg' },
-  ];
-
+  const { team } = content;
+  
   return (
     <div className="bg-white p-6 md:p-10 rounded-lg max-w-4xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8">ЗНАКОМЬТЕСЬ С КОМАНДОЙ</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-8">{team.title}</h2>
       <div className="space-y-8">
-        {teamMembers.map((member, index) => (
+        {team.members.map((member, index) => (
           <div key={index} className="flex items-center space-x-6">
             <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden flex-shrink-0 relative">
               <Image
@@ -31,9 +28,7 @@ export function Team() {
           </div>
         ))}
       </div>
-      <p className="mt-8 text-gray-700 text-lg">
-        И еще <strong>21 человек,</strong> которые работают с нами постоянно
-      </p>
+      <p className="mt-8 text-gray-700 text-lg" dangerouslySetInnerHTML={{ __html: team.footer }} />
     </div>
   )
 }

@@ -1,12 +1,13 @@
 'use client'
 
 import Image from 'next/image';
+import { Content } from '../data/content';
 
 interface HelpCardProps {
   title: string;
   imageSrc: string;
-  statistic1: { number: string; text: string };
-  statistic2: { number: string; text: string };
+  statistic1: Content['statistics']['stats'][0];
+  statistic2: Content['statistics']['stats'][0];
   description: string;
 }
 

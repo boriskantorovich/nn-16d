@@ -2,17 +2,13 @@
 
 import Image from 'next/image'
 import { useRef, useEffect, useState } from 'react'
+import { Content } from '../data/content'
 
-interface TestimonialCardProps {
-  testimonial: {
-    imageSrc: string;
-    quote: string;
-    author: string;
-    withBackground: boolean;
-  }
+type TestimonialProps = {
+  testimonial: Content['testimonials'][0]
 }
 
-export function TestimonialCard({ testimonial }: TestimonialCardProps) {
+export function TestimonialCard({ testimonial }: TestimonialProps) {
   const { imageSrc, quote, author, withBackground } = testimonial;
   const contentRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -61,17 +57,17 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
         </div>
       </div>
     )
-  } else {
-    return (
-      <div ref={cardRef} className="bg-white rounded-2xl overflow-hidden max-w-[800px] w-full mx-auto p-6 md:p-10">
-        <div ref={contentRef}>
-          <blockquote 
-            className="text-base md:text-lg mb-4 whitespace-pre-wrap text-black"
-            dangerouslySetInnerHTML={{ __html: formattedQuote }}
-          />
-          <p className="text-base md:text-lg font-semibold text-black">{author}</p>
-        </div>
-      </div>
-    )
   }
+
+  return (
+    <div ref={cardRef} className="bg-white rounded-2xl overflow-hidden max-w-[800px] w-full mx-auto p-6 md:p-10">
+      <div ref={contentRef}>
+        <blockquote 
+          className="text-base md:text-lg mb-4 whitespace-pre-wrap text-black"
+          dangerouslySetInnerHTML={{ __html: formattedQuote }}
+        />
+        <p className="text-base md:text-lg font-semibold text-black">{author}</p>
+      </div>
+    </div>
+  )
 }

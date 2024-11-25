@@ -4,6 +4,7 @@ import { SiInstagram } from '@icons-pack/react-simple-icons'
 import { Send } from 'lucide-react'
 import Link from 'next/link'
 import { analytics } from '@/utils/analytics'
+import { content } from '../data/content'
 
 export function FooterComponent() {
   const handleSocialLinkClick = (platform: string) => {
@@ -14,7 +15,7 @@ export function FooterComponent() {
     <footer className="w-full bg-gray-100 py-4">
       <div className="max-w-4xl mx-auto px-4 flex justify-between items-center">
         <p className="text-gray-600 text-sm">
-          © 2024 Насилию.нет
+          {content.page.footer.copyright}
         </p>
         <div className="flex items-center space-x-4">
           <Link 
