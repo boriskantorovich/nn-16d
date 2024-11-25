@@ -193,7 +193,7 @@ export const content: Content = {
       imageSrc: "/images/help-cards/card2.webp",
       statistic1: { number: "9 163", text: "пострадавших<br />получили помощь психологов" },
       statistic2: { number: "5", text: "психологов<br />в&nbsp;нашей команде" },
-      description: "Проводим индивидуальные психологические консультации и ведем группы поддержки&nbsp;��� онлайн и&nbsp;очно."
+      description: "Проводим индивидуальные психологические консультации и ведем группы поддержки&nbsp; онлайн и&nbsp;очно."
     },
     {
       title: "Юридическая помощь",

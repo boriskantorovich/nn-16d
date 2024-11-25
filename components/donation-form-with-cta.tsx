@@ -40,7 +40,7 @@ export function DonationForm({ formId = 'default' }: DonationFormProps) {
     setAmount(value)
     analytics.trackDonationForm(
       'Payment Option Click', 
-      `${cardType === 'foreign' ? '$' : '₽'}${value}`, 
+      cardType === 'foreign' ? `$${value}` : `${value}₽`, 
       formId
     );
   }
@@ -50,7 +50,7 @@ export function DonationForm({ formId = 'default' }: DonationFormProps) {
     if (!isNaN(numericAmount) && numericAmount > 0) {
       analytics.trackDonationForm(
         'Donate Button Click', 
-        `${cardType === 'foreign' ? '$' : '₽'}${amount}`, 
+        cardType === 'foreign' ? `$${amount}` : `${amount}₽`, 
         formId, 
         numericAmount
       );
@@ -121,7 +121,7 @@ export function DonationForm({ formId = 'default' }: DonationFormProps) {
                 : "bg-transparent border-2 border-black text-black hover:bg-gray-100"
             }`}
           >
-            {cardType === 'foreign' ? '$' : '₽'}{value}
+            {cardType === 'foreign' ? `$${value}` : `${value}₽`}
           </Button>
         ))}
       </div>
