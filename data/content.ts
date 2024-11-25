@@ -120,7 +120,7 @@ export const content: Content = {
   },
 
   cta: {
-    title: "Сотни тысяч женщин",
+    title: "СОТНИ ТЫСЯЧ ЖЕНЩИН",
     subtitle: "подвергаются насилию в России.",
     statistics: [
       "<strong>995 женщин</strong> были убиты только в 2021—2022 году.",
