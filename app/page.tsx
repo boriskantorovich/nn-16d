@@ -28,14 +28,14 @@ export default function Home() {
       <div id="donate-now" className="max-w-[800px] mx-auto px-6 py-12">
         <DonationForm formId="form1" />
       </div>
-      <div className="bg-black py-12 px-4 md:px-8">
+      <div className="bg-custom-red py-12 px-4 md:px-8">
         <div className="max-w-[800px] mx-auto">
           <div className="p-4">
             <h2 className="text-4xl md:text-5xl font-bold text-white text-left mb-8 uppercase">
               Насилию.нет 6{"\u00A0"}лет помогает женщинам
             </h2>
           </div>
-          <div className="flex flex-col gap-16 items-center">
+          <div className="flex flex-col gap-8 items-center">
             <TextHelpCard />
             {helpCards.map((card, index) => (
               <HelpCardComponent key={index} {...card} />

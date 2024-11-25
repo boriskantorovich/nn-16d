@@ -43,7 +43,7 @@ export function HeroComponent() {
           <p className="text-base md:text-lg mb-6 text-left" dangerouslySetInnerHTML={{ __html: hero.subtitle }}></p>
           <div className="flex flex-col md:flex-row md:items-center md:justify-start">
             <button 
-              className="w-full md:w-[400px] bg-red-500 hover:bg-red-600 text-white font-bold py-3 md:py-4 px-6 rounded-full transition duration-300 text-lg md:text-xl"
+              className="w-full md:w-[400px] bg-custom-red hover:bg-custom-red-hover text-white font-bold py-3 md:py-4 px-6 rounded-full transition duration-300 text-lg md:text-xl"
               onClick={handleDonateClick}
             >
               <span className="block text-center">{hero.buttons.donate}</span>

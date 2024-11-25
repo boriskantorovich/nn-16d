@@ -71,9 +71,9 @@ export function DonationForm({ formId = 'default' }: DonationFormProps) {
   const currentAmounts = Object.keys(paymentLinks[cardType]);
 
   return (
-    <div className="bg-white rounded-lg p-4 border-4 border-red-500 w-full">
+    <div className="bg-white rounded-lg p-4 border-4 border-custom-red w-full">
       <h3 className="text-3xl md:text-3xl font-bold mb-4 text-left">
-        <span className="text-red-500">{donation.title.red}</span><br />
+        <span className="text-custom-red">{donation.title.red}</span><br />
         <span className="text-black">{donation.title.black}</span>
       </h3>
       <p className="text-base mb-6 text-left" dangerouslySetInnerHTML={{ __html: donation.subtitle }} />
@@ -127,7 +127,7 @@ export function DonationForm({ formId = 'default' }: DonationFormProps) {
       </div>
 
       <Button 
-        className="w-full bg-red-500 text-white hover:bg-red-600 mb-6 text-xl font-bold py-6 rounded-md h-auto"
+        className="w-full bg-custom-red text-white hover:bg-custom-red-hover mb-6 text-xl font-bold py-6 rounded-md h-auto"
         onClick={handleDonateClick}
       >
         {donation.donateButton}

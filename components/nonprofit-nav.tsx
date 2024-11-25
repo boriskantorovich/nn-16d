@@ -63,7 +63,7 @@ export function NonprofitNavComponent() {
           <div className="flex items-center space-x-4">
             <button 
               onClick={handleDonateClick}
-              className="hidden md:block bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 text-base md:text-lg cursor-pointer"
+              className="hidden md:block bg-custom-red hover:bg-custom-red-hover text-white font-bold py-2 px-6 rounded-full transition duration-300 text-base md:text-lg cursor-pointer"
             >
               {navigation.donateButton}
             </button>
