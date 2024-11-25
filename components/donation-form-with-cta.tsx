@@ -15,9 +15,9 @@ const paymentLinks = {
     "25": "https://buy.stripe.com/aEUeXu4IZfqJ90Y7sw"
   },
   russian: {
-    "500": "LINK_PLACEHOLDER_500",
-    "1000": "LINK_PLACEHOLDER_1000",
-    "1500": "LINK_PLACEHOLDER_1500"
+    "500": "https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=2ac6907a-bb40-446f-b015-a3394a9f9ef9",
+    "1000": "https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=6da6655c-15ba-46c4-8e6c-e2e40cbfef52",
+    "1500": "https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=fb1b380b-96ad-47ea-957c-a39887d2e9a2"
   }
 } as const;
 
