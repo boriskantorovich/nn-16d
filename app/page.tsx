@@ -11,6 +11,8 @@ import { Ebala } from '../components/ebala'
 import { content } from '../data/content'
 import { InstagramFeed } from '../components/instagram-feed'
 import { TextHelpCard } from '../components/text-help-card'
+import { IntroComponent } from '../components/intro'
+import { Banner } from '../components/banner'
 
 export default function Home() {
   const { helpCards, page } = content;
@@ -22,10 +24,11 @@ export default function Home() {
         <NonprofitNavComponent />
         <HeroComponent />
       </div>
+      <IntroComponent />
       <div id="learn-more">
         <CtaComponent />
       </div>
-      <div id="donate-now" className="max-w-[800px] mx-auto px-6 py-12">
+      <div id="donate-now" className="max-w-[800px] mx-auto py-12 px-2 md:px-0">
         <DonationForm formId="form1" />
       </div>
       <div className="bg-custom-red py-12 px-4 md:px-8">
@@ -35,15 +38,15 @@ export default function Home() {
               Насилию.нет 6{"\u00A0"}лет помогает женщинам
             </h2>
           </div>
-          <div className="flex flex-col gap-8 items-center">
-            <TextHelpCard />
+          <div className="flex flex-col gap-6 items-center">
             {helpCards.map((card, index) => (
               <HelpCardComponent key={index} {...card} />
             ))}
+            <TextHelpCard />
           </div>
         </div>
       </div>
-      <div className="max-w-[800px] mx-auto px-6 py-6">
+      <div className="max-w-[800px] mx-auto py-6 px-2 md:px-0">
         <div className="p-4">
           <h2 
             className="text-3xl md:text-4xl font-bold mb-6 text-left" 
@@ -52,15 +55,16 @@ export default function Home() {
         </div>
         <DonationForm formId="form2" />
       </div>
-      <div className="max-w-[800px] mx-auto px-6 py-6">
+      <div className="max-w-[800px] mx-auto py-6 px-4 md:px-0">
         <StatisticsComponent />
         <Team />
       </div>
+      <Banner />
       <InstagramFeed />
-      <div className="max-w-[800px] mx-auto px-6 py-6">
+      <div className="max-w-[800px] mx-auto py-6 px-4 md:px-0">
         <MediaMentionsComponent />
       </div>
-      <div className="max-w-[800px] mx-auto px-6 py-6">
+      <div className="max-w-[800px] mx-auto py-6 px-2 md:px-0">
         <DonationForm formId="form3" />
       </div>
       <FooterComponent /> 

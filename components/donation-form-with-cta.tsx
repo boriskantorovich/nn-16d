@@ -71,7 +71,7 @@ export function DonationForm({ formId = 'default' }: DonationFormProps) {
   const currentAmounts = Object.keys(paymentLinks[cardType]);
 
   return (
-    <div className="bg-white rounded-lg p-4 border-4 border-custom-red w-full">
+    <div className="bg-white rounded-2xl p-6 md:p-10 max-w-[800px] w-full mx-auto border-[4px] border-solid border-custom-red">
       <h3 className="text-3xl md:text-3xl font-bold mb-4 text-left">
         <span className="text-custom-red">{donation.title.red}</span><br />
         <span className="text-black">{donation.title.black}</span>

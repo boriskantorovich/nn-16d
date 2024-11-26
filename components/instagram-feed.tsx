@@ -4,8 +4,8 @@ import { useEffect } from 'react'
 import { analytics } from '@/utils/analytics'
 
 const INSTAGRAM_POSTS = [
+  'https://www.instagram.com/p/DCyXAm0CGK0/',
   'https://www.instagram.com/p/DCqroYGi56_/',
-  'https://www.instagram.com/p/C55TjxVrJFr/',
   'https://www.instagram.com/p/DCHBObcCKQq/'
 ];
 

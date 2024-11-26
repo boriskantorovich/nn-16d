@@ -52,6 +52,7 @@ const config: Config = {
   			},
   			'custom-red': '#F05701',
   			'custom-red-hover': '#D64E01',
+  			'custom-orange': '#FFC8A9',
   		}
   	}
   },
