@@ -3,11 +3,16 @@
 # Load environment variables
 source .env
 
-# Configuration (moved to .env)
+# Configuration
 SERVER_USER="${DEPLOY_SERVER_USER}"
 SERVER_IP="${DEPLOY_SERVER_IP}"
 PROJECT_PATH="${DEPLOY_PROJECT_PATH}"
 PROJECT_NAME="${DEPLOY_PROJECT_NAME}"
+SSH_KEY="${DEPLOY_SSH_KEY}"
+
+# SSH and SCP commands with specific key
+SSH_CMD="ssh -i $SSH_KEY"
+SCP_CMD="scp -i $SSH_KEY"
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -24,6 +29,10 @@ error() {
     exit 1
 }
 
+# Check if project directory exists
+log "Checking remote directory..."
+$SSH_CMD $SERVER_USER@$SERVER_IP "mkdir -p $PROJECT_PATH" || error "Failed to create project directory"
+
 # Build the project
 log "Building project..."
 npm run build || error "Build failed"
@@ -34,11 +43,14 @@ tar -czf build.tar.gz .next package.json package-lock.json public || error "Fail
 
 # Upload to server
 log "Uploading to server..."
-scp build.tar.gz $SERVER_USER@$SERVER_IP:$PROJECT_PATH/build.tar.gz || error "Failed to upload archive"
+$SCP_CMD build.tar.gz $SERVER_USER@$SERVER_IP:$PROJECT_PATH/build.tar.gz || error "Failed to upload archive"
 
 # Execute commands on server
 log "Deploying on server..."
-ssh $SERVER_USER@$SERVER_IP "cd /var/www && ./restart_server.sh $PROJECT_NAME" || error "Failed to deploy on server"
+$SSH_CMD $SERVER_USER@$SERVER_IP "cd $PROJECT_PATH && \
+    tar -xzf build.tar.gz && \
+    npm install --production && \
+    pm2 restart $PROJECT_NAME || pm2 start npm --name $PROJECT_NAME -- start -- -p 3001" || error "Failed to deploy on server"
 
 # Clean up local archive
 log "Cleaning up..."
