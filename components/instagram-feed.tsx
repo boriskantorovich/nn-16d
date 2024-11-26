@@ -11,6 +11,9 @@ const INSTAGRAM_POSTS = [
 
 export function InstagramFeed() {
   useEffect(() => {
+    // Track that the Instagram feed was viewed
+    analytics.trackInstagram('View', 'Instagram Feed Loaded');
+
     const script = document.createElement('script')
     script.src = '//www.instagram.com/embed.js'
     script.async = true
@@ -18,10 +21,17 @@ export function InstagramFeed() {
 
     // Add click interceptor after embed loads
     script.onload = () => {
-      document.querySelectorAll('.instagram-post-container').forEach(container => {
+      document.querySelectorAll('.instagram-post-container').forEach((container, index) => {
         container.addEventListener('click', (e) => {
-          // Allow clicks only on carousel buttons
-          if (!(e.target as HTMLElement).closest('.coreSpriteRightChevron, .coreSpriteLeftChevron')) {
+          const target = e.target as HTMLElement;
+          // Track carousel navigation
+          if (target.closest('.coreSpriteRightChevron')) {
+            analytics.trackInstagram('Next Photo', INSTAGRAM_POSTS[index]);
+          } else if (target.closest('.coreSpriteLeftChevron')) {
+            analytics.trackInstagram('Previous Photo', INSTAGRAM_POSTS[index]);
+          } else {
+            // Track attempted post interaction
+            analytics.trackInstagram('Post Interaction Attempted', INSTAGRAM_POSTS[index]);
             e.preventDefault();
             e.stopPropagation();
           }

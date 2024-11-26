@@ -130,6 +130,15 @@ class Analytics {
   trackDonation(amount: number, formId: string) {
     this.pushToDataLayer('donation', { donation_amount: amount, formId });
   }
+
+  /**
+   * Tracks Instagram feed interactions
+   * @param action - The action performed (e.g., 'View', 'Click')
+   * @param postUrl - The Instagram post URL
+   */
+  trackInstagram(action: string, postUrl: string) {
+    this.trackEvent('Instagram Feed', action, postUrl);
+  }
 }
 
 export const analytics = new Analytics();
