@@ -16,20 +16,33 @@ export function InstagramFeed() {
     script.async = true
     document.body.appendChild(script)
 
+    // Add click interceptor after embed loads
+    script.onload = () => {
+      document.querySelectorAll('.instagram-post-container').forEach(container => {
+        container.addEventListener('click', (e) => {
+          // Allow clicks only on carousel buttons
+          if (!(e.target as HTMLElement).closest('.coreSpriteRightChevron, .coreSpriteLeftChevron')) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }, true);
+      });
+    }
+
     return () => {
       document.body.removeChild(script)
     }
   }, [])
 
-  const handlePostClick = () => {
-    analytics.trackEvent('Social', 'Instagram Post Click');
-  }
-
   return (
     <div className="w-full max-w-[1200px] mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {INSTAGRAM_POSTS.map((postUrl, index) => (
-          <div key={index} className="instagram-post-container" onClick={handlePostClick}>
+          <div 
+            key={index} 
+            className="instagram-post-container" 
+            style={{ minHeight: '600px' }}
+          >
             <blockquote
               className="instagram-media"
               data-instgrm-permalink={postUrl}
@@ -45,7 +58,7 @@ export function InstagramFeed() {
                 minWidth: '280px',
                 padding: '0',
                 width: '100%',
-                aspectRatio: '4/5',
+                height: '100%',
               }}
             />
           </div>

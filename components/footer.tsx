@@ -12,9 +12,9 @@ export function FooterComponent() {
   };
 
   return (
-    <footer className="w-full bg-gray-100 py-4">
+    <footer className="w-full bg-black py-4">
       <div className="max-w-4xl mx-auto px-4 flex justify-between items-center">
-        <p className="text-gray-600 text-sm">
+        <p className="text-white text-sm">
           {content.page.footer.copyright}
         </p>
         <div className="flex items-center space-x-4">
@@ -22,7 +22,7 @@ export function FooterComponent() {
             href="https://instagram.com/nasiliutochkanet/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-gray-600 hover:text-gray-800"
+            className="text-white hover:text-gray-300"
             onClick={() => handleSocialLinkClick('Instagram')}
           >
             <SiInstagram size={20} />
@@ -32,7 +32,7 @@ export function FooterComponent() {
             href="https://t.me/nn_com" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-gray-600 hover:text-gray-800"
+            className="text-white hover:text-gray-300"
             onClick={() => handleSocialLinkClick('Telegram')}
           >
             <Send size={20} />

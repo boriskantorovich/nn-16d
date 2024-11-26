@@ -11,9 +11,9 @@ export function HeroComponent() {
   const handleLearnMoreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     analytics.trackHero('Learn More Click');
-    const learnMoreSection = document.getElementById('learn-more');
-    if (learnMoreSection) {
-      learnMoreSection.scrollIntoView({ behavior: 'smooth' });
+    const introSection = document.getElementById('intro-section');
+    if (introSection) {
+      introSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -48,7 +48,7 @@ export function HeroComponent() {
             <span className="block text-center">{hero.buttons.donate}</span>
           </button>
           <Link 
-            href="#learn-more" 
+            href="#intro-section" 
             className="text-base md:text-lg underline mt-4 md:mt-0 md:ml-12 text-center md:text-left whitespace-nowrap" 
             onClick={handleLearnMoreClick}
           >

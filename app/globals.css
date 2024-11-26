@@ -81,7 +81,7 @@ body {
 .instagram-post-container {
   position: relative;
   width: 100%;
-  min-height: 450px;
+  min-height: 600px;
   background-color: #fafafa;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -96,9 +96,17 @@ body {
   margin: 0 !important;
 }
 
-/* Fix Instagram embed margins */
-.instagram-media-rendered {
-  margin: 0 !important;
+/* Prevent all navigation */
+.instagram-media a,
+.instagram-media [role="link"],
+.instagram-media [role="button"] {
+  pointer-events: none !important;
+}
+
+/* Allow only carousel controls */
+.instagram-media .coreSpriteRightChevron,
+.instagram-media .coreSpriteLeftChevron {
+  pointer-events: auto !important;
 }
 
 /* Loading state pulse animation */

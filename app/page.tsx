@@ -55,8 +55,12 @@ export default function Home() {
         </div>
         <DonationForm formId="form2" />
       </div>
+      <div className="bg-custom-red py-6 px-4 md:px-0">
+        <div className="max-w-[800px] mx-auto">
+          <StatisticsComponent />
+        </div>
+      </div>
       <div className="max-w-[800px] mx-auto py-6 px-4 md:px-0">
-        <StatisticsComponent />
         <Team />
       </div>
       <Banner />
@@ -67,7 +71,8 @@ export default function Home() {
       <div className="max-w-[800px] mx-auto py-6 px-2 md:px-0">
         <DonationForm formId="form3" />
       </div>
-      <FooterComponent /> 
+      <Banner />
+      <FooterComponent />
     </div>
   );
 }

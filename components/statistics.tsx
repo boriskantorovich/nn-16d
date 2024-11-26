@@ -6,7 +6,7 @@ export function StatisticsComponent() {
   const { statistics } = content;
   
   return (
-    <div className="bg-white p-6 md:p-10 rounded-lg max-w-4xl mx-auto">
+    <div className="p-6 md:p-10 rounded-lg max-w-4xl mx-auto text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8">{statistics.title}</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

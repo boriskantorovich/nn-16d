@@ -6,10 +6,10 @@ export function IntroComponent() {
   const { intro } = content;
   
   return (
-    <div className="flex flex-col items-center bg-white py-8 px-4 md:px-8">
+    <div id="intro-section" className="flex flex-col items-center bg-white py-8 px-4 md:px-8">
       <div className="max-w-[800px] w-full relative">
         <p 
-          className="text-base md:text-lg text-black text-left relative inline"
+          className="text-xl md:text-2xl text-black text-left relative inline"
           style={{
             boxDecorationBreak: 'clone',
             WebkitBoxDecorationBreak: 'clone',
